@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.todomanager.MainActivity">
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/etNewTodo"
+            android:hint="New Todo to add"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btnAddTodo"
+            android:background="@drawable/ic_add_black_24dp"
+            android:layout_width="40dp"
+            android:backgroundTint="#2196F3"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btnDelTodo"
+            android:background="@drawable/ic_delete_black_24dp"
+            android:backgroundTint="#EF5350"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvTodos"
+        tools:listitem="@android:layout/simple_list_item_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
