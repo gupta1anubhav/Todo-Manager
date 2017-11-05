@@ -94,21 +94,26 @@ class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder> {
         holder.cb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean x1=false;
-                Log.e(TAG, "onClick: "+todos.get(holder.getAdapterPosition()).getId()+holder.cb.isChecked()+" "+todos.get(position).isDone());
                 final SQLiteDatabase todoDb = new TodoDbHelper(MainActivity.this).getWritableDatabase();
+                final boolean[] x1 = new boolean[1];
+                Log.e(TAG, "onClick: "+todos.get(holder.getAdapterPosition()).getId()+holder.cb.isChecked()+" "+todos.get(position).isDone());
+
                 if(holder.cb.isChecked()){
-                    x1= true;
+                    //holder.cb.setChecked(true);
+                    x1[0] = true;
                 } else {
-                    x1= false;
+                    //holder.cb.setChecked(false);
+                    x1[0] = false;
                 }
-                int x = TodoTable.updateTodo(todoDb, new Todo(todos.get(position).getTask(), x1), position);
+                int x = TodoTable.updateTodo(todoDb, new Todo(todos.get(position).getTask(), x1[0]), position);
                 todos = TodoTable.getAllTodos(todoDb);
                 notifyDataSetChanged();
                 Log.e(TAG,"onClick "+todos.get(position).isDone());
             }
 
+
         });
+
     }
 
     @Override
